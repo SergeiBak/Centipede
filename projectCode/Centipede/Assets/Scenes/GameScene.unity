@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd4529727261da43ada253beca4f08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7135704852372414813, guid: b158ae90ba8d32b40bd61048eafdbf5c, type: 3}
   amount: 50
 --- !u!61 &1066341966
 BoxCollider2D:
