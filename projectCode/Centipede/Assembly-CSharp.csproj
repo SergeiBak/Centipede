@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Blaster.cs" />
+    <Compile Include="Assets\Scripts\Dart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
