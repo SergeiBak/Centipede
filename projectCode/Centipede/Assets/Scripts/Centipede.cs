@@ -6,6 +6,8 @@ public class Centipede : MonoBehaviour
 {
     [SerializeField]
     private int size = 12;
+    public float speed = 20f;
+
     [SerializeField]
     private CentipedeSegment segmentPrefab;
     [SerializeField]
@@ -34,8 +36,25 @@ public class Centipede : MonoBehaviour
             Vector2 position = GridPosition(transform.position) + (Vector2.right * i);
             CentipedeSegment segment = Instantiate(segmentPrefab, position, Quaternion.identity);
             segment.sr.sprite = i == 0 ? headSprite : bodySprite;
+            segment.centipede = this;
             segments.Add(segment);
         }
+
+        for (int i = 0; i < segments.Count; i++)
+        {
+            CentipedeSegment segment = segments[i];
+            segment.ahead = GetSegmentAt(i - 1);
+            segment.behind = GetSegmentAt(i + 1);
+        }
+    }
+
+    private CentipedeSegment GetSegmentAt(int index)
+    {
+        if (index >= 0 && index < segments.Count) // check if in bounds
+        {
+            return segments[index];
+        }
+        return null;
     }
 
     private Vector2 GridPosition(Vector2 position) // make sure postion is aligned to grid
