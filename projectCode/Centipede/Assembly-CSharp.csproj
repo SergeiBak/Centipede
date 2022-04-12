@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Blaster.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
+    <Compile Include="Assets\Scripts\Mushroom.cs" />
+    <Compile Include="Assets\Scripts\MushroomField.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
