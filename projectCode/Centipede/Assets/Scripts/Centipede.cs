@@ -18,6 +18,8 @@ public class Centipede : MonoBehaviour
 
     [SerializeField]
     private CentipedeSegment segmentPrefab;
+    [SerializeField]
+    private Mushroom mushroomPrefab;
 
     private List<CentipedeSegment> segments = new List<CentipedeSegment>();
 
@@ -50,6 +52,27 @@ public class Centipede : MonoBehaviour
             segment.ahead = GetSegmentAt(i - 1);
             segment.behind = GetSegmentAt(i + 1);
         }
+    }
+
+    public void Remove(CentipedeSegment segment)
+    {
+        Vector3 position = GridPosition(segment.transform.position);
+        Instantiate(mushroomPrefab, position, Quaternion.identity);
+
+        if (segment.ahead != null)
+        {
+            segment.ahead.behind = null;
+        }
+
+        if (segment.behind != null)
+        {
+            segment.behind.ahead = null;
+            segment.behind.sr.sprite = headSprite;
+            segment.behind.UpdateHeadSegment();
+        }
+
+        segments.Remove(segment);
+        Destroy(segment.gameObject);
     }
 
     private CentipedeSegment GetSegmentAt(int index)

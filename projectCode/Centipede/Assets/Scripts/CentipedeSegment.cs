@@ -35,7 +35,7 @@ public class CentipedeSegment : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    private void UpdateHeadSegment()
+    public void UpdateHeadSegment()
     {
         Vector2 gridPosition = GridPosition(transform.position);
 
@@ -80,5 +80,14 @@ public class CentipedeSegment : MonoBehaviour
         position.y = Mathf.Round(position.y);
 
         return position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Dart"))
+        {
+            collision.collider.enabled = false;
+            centipede.Remove(this);
+        }
     }
 }

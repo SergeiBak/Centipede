@@ -835,6 +835,7 @@ MonoBehaviour:
   headSprite: {fileID: -2406458125268022531, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   bodySprite: {fileID: 1645465952743935189, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   segmentPrefab: {fileID: 5645216208761585701, guid: 89e7ebdaf263bdb44ae964550ff019bd, type: 3}
+  mushroomPrefab: {fileID: 7135704852372414813, guid: b158ae90ba8d32b40bd61048eafdbf5c, type: 3}
 --- !u!4 &1124458640
 Transform:
   m_ObjectHideFlags: 0
