@@ -754,6 +754,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba4faefa2f14cb4d89de924011ceda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2716283064115544992, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -8940829640297300851, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4059334596610141202, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5144653759254542397, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -386912844734639832, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 7052614685556110790, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5597724858552253000, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -9161904880511379482, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 3794277214400919146, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 9163652338350467885, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5369893413451752766, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 7079520864586100475, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -100491792553188947, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -3359880804987353267, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   speed: 50
 --- !u!1 &662852766
 GameObject:

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private Blaster blaster;
+    private Dart dart;
     private Centipede centipede;
     private MushroomField mushroomField;
 
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         blaster = FindObjectOfType<Blaster>();
+        dart = FindObjectOfType<Dart>();
         centipede = FindObjectOfType<Centipede>();
         mushroomField = FindObjectOfType<MushroomField>();
 
@@ -142,5 +144,6 @@ public class GameManager : MonoBehaviour
 
         currentIndex = index;
         blaster.UpdateColor();
+        dart.UpdateColor();
     }
 }

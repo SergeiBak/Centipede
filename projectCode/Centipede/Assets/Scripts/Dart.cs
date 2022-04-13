@@ -8,11 +8,17 @@ public class Dart : MonoBehaviour
     private new Collider2D collider;
     private Transform parent;
 
+    private SpriteRenderer sr;
+    [SerializeField]
+    private Sprite[] sprites;
+
     [SerializeField]
     private float speed = 50f;
 
     private void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
+
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
 
@@ -48,5 +54,10 @@ public class Dart : MonoBehaviour
         transform.localPosition = new Vector3(0f, 0.5f, 0f);
         rb.bodyType = RigidbodyType2D.Kinematic;
         collider.enabled = false;
+    }
+
+    public void UpdateColor()
+    {
+        sr.sprite = sprites[GameManager.Instance.currentIndex];
     }
 }
