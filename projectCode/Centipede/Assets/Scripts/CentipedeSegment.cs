@@ -84,8 +84,9 @@ public class CentipedeSegment : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.collider.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            collision.collider.enabled = false;
             GameManager.Instance.ResetRound();
             return;
         }

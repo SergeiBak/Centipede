@@ -845,6 +845,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  sprites:
+  - {fileID: -7645302289153528015, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -4308400047226311142, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -9101866762572830730, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4138438795972629660, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4654807215771612324, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -3909645610678344570, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 6714653665506034892, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 359177178325559842, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 9179309422474011663, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -6186930871341731003, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5567838578214840397, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 3198112962778272501, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 8818960569506528757, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -8140214785609352426, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
 --- !u!61 &928239548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1472,6 +1487,7 @@ MonoBehaviour:
   scoreText: {fileID: 1288938288}
   livesText: {fileID: 158915061}
   gameOver: {fileID: 1313931094}
+  maxIndex: 13
 --- !u!4 &1531581170
 Transform:
   m_ObjectHideFlags: 0

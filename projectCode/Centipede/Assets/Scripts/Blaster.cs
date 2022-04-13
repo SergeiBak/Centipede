@@ -5,14 +5,20 @@ using UnityEngine;
 public class Blaster : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private new BoxCollider2D collider;
     private Vector2 direction;
     private Vector2 spawnPosition;
     [SerializeField]
     private float speed = 20f;
+    [SerializeField]
+    private Sprite[] sprites;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider2D>();
         spawnPosition = transform.position;
     }
 
@@ -33,5 +39,11 @@ public class Blaster : MonoBehaviour
     {
         transform.position = spawnPosition;
         gameObject.SetActive(true);
+        collider.enabled = true;
+    }
+
+    public void UpdateColor()
+    {
+        sr.sprite = sprites[GameManager.Instance.currentIndex];
     }
 }

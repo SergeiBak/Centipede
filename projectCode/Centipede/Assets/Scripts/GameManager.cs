@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     private int score;
     private int lives;
 
+    [SerializeField]
+    private int maxIndex = 13;
+    public int currentIndex { get; private set; }
+
     private void Awake()
     {
         if (Instance == null) // establish singleton pattern
@@ -56,12 +60,18 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SetColorIndex(currentIndex + 1);
+        }
     }
 
     private void NewGame()
     {
         SetScore(0);
         SetLives(3);
+        SetColorIndex(0);
 
         centipede.Respawn();
         blaster.Respawn();
@@ -102,6 +112,8 @@ public class GameManager : MonoBehaviour
     {
         centipede.speed *= 1.1f;
         centipede.Respawn();
+
+        SetColorIndex(currentIndex + 1);
     }
 
     public void IncreaseScore(int amount)
@@ -119,5 +131,16 @@ public class GameManager : MonoBehaviour
     {
         lives = value;
         livesText.text = lives.ToString();
+    }
+
+    private void SetColorIndex(int index)
+    {
+        if (index > maxIndex)
+        {
+            index = 0;
+        }
+
+        currentIndex = index;
+        blaster.UpdateColor();
     }
 }

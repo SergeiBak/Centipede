@@ -63,12 +63,14 @@ public class MushroomRepairAnim : MonoBehaviour
 
     private IEnumerator RepairAnimation(float frameTime)
     {
-        sr.sprite = sprites[0][0];
+        int colorIndex = GameManager.Instance.currentIndex;
+
+        sr.sprite = sprites[colorIndex][0];
         sr.enabled = true;
 
-        for (int i = 0; i < sprites[0].Length; i++)
+        for (int i = 0; i < sprites[colorIndex].Length; i++)
         {
-            sr.sprite = sprites[0][i];
+            sr.sprite = sprites[colorIndex][i];
 
             yield return new WaitForSeconds(frameTime);
         }
