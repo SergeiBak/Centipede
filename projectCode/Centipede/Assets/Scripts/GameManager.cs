@@ -145,5 +145,6 @@ public class GameManager : MonoBehaviour
         currentIndex = index;
         blaster.UpdateColor();
         dart.UpdateColor();
+        mushroomField.UpdateMushroomColors();
     }
 }

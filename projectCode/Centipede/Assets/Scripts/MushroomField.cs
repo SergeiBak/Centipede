@@ -66,4 +66,14 @@ public class MushroomField : MonoBehaviour
     {
         return room1.gameObject.transform.position.x.CompareTo(room2.gameObject.transform.position.x);
     }
+
+    public void UpdateMushroomColors()
+    {
+        Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
+
+        foreach (Mushroom mushroom in mushrooms)
+        {
+            mushroom.RenderMushroom();
+        }
+    }
 }
