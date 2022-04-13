@@ -7,6 +7,7 @@ public class Centipede : MonoBehaviour
     [SerializeField]
     private int size = 12;
     public float speed = 20f;
+    private float originalSpeed;
     public int pointsHead = 100;
     public int pointsBody = 10;
 
@@ -94,5 +95,16 @@ public class Centipede : MonoBehaviour
         position.y = Mathf.Round(position.y);
 
         return position;
+    }
+
+    public void PauseCentipede()
+    {
+        originalSpeed = speed;
+        speed = 0;
+    }
+
+    public void ResumeCentipede()
+    {
+        speed = originalSpeed;
     }
 }

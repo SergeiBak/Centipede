@@ -37,7 +37,7 @@ public class Mushroom : MonoBehaviour
     {
         health = states.Length;
         sr.sprite = states[0];
-        repairAnimation.PlayRepairAnimation(0.5f);
+        repairAnimation.PlayRepairAnimation(0.1f);
     }
 
     public bool IsFullHealth()

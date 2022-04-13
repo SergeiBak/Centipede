@@ -87,12 +87,14 @@ public class GameManager : MonoBehaviour
         }
 
         blaster.gameObject.SetActive(false);
+        centipede.PauseCentipede();
         mushroomField.Heal();
     }
 
     public void RespawnPlayer()
     {
         centipede.Respawn();
+        centipede.ResumeCentipede();
         blaster.Respawn();
     }
 

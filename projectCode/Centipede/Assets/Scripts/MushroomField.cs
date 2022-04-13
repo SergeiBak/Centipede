@@ -18,7 +18,7 @@ public class MushroomField : MonoBehaviour
     public void Generate()
     {
         Bounds bounds = area.bounds;
-
+        
         for (int i = 0; i < amount; i++)
         {
             Vector2 position = Vector2.zero;
@@ -48,16 +48,22 @@ public class MushroomField : MonoBehaviour
     private IEnumerator HealAnimation()
     {
         Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
+        System.Array.Sort(mushrooms, ComparePos);
 
         foreach (Mushroom mushroom in mushrooms)
         {
             if (!mushroom.IsFullHealth())
             {
                 mushroom.Heal();
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(0.3f);
             }
         }
 
         GameManager.Instance.RespawnPlayer();
+    }
+
+    private static int ComparePos(Mushroom room1, Mushroom room2) // sort mushrooms based on screen position from left to right
+    {
+        return room1.gameObject.transform.position.x.CompareTo(room2.gameObject.transform.position.x);
     }
 }
