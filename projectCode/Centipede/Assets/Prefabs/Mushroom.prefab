@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8610305840408693627}
   - component: {fileID: 5839778746818392895}
   - component: {fileID: 7135704852372414813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

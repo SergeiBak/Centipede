@@ -39,7 +39,23 @@ public class CentipedeSegment : MonoBehaviour
     {
         Vector2 gridPosition = GridPosition(transform.position);
 
+        targetPosition = gridPosition;
         targetPosition.x += direction.x;
+
+        if(Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, centipede.collisionMask))
+        {
+            direction.x = -direction.x;
+
+            targetPosition.x = gridPosition.x;
+            targetPosition.y = gridPosition.y + direction.y;
+
+            Bounds homeBounds = centipede.homeArea.bounds;
+            if ((direction.y == 1f && targetPosition.y > homeBounds.max.y) || (direction.y == -1f && targetPosition.y < homeBounds.min.y)) // reverse direction
+            {
+                direction.y = -direction.y;
+                targetPosition.y = gridPosition.y + direction.y;
+            }
+        }
 
         if (behind != null)
         {

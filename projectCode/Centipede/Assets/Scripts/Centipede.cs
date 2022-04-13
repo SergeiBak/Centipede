@@ -8,12 +8,16 @@ public class Centipede : MonoBehaviour
     private int size = 12;
     public float speed = 20f;
 
-    [SerializeField]
-    private CentipedeSegment segmentPrefab;
+    public LayerMask collisionMask;
+    public BoxCollider2D homeArea;
+
     [SerializeField]
     private Sprite headSprite;
     [SerializeField]
     private Sprite bodySprite;
+
+    [SerializeField]
+    private CentipedeSegment segmentPrefab;
 
     private List<CentipedeSegment> segments = new List<CentipedeSegment>();
 
