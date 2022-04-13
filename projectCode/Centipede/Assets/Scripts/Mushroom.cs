@@ -9,6 +9,8 @@ public class Mushroom : MonoBehaviour
     public int points = 1;
     private int health;
     private SpriteRenderer sr;
+    [SerializeField]
+    MushroomRepairAnim repairAnimation;
 
     private void Awake()
     {
@@ -35,6 +37,12 @@ public class Mushroom : MonoBehaviour
     {
         health = states.Length;
         sr.sprite = states[0];
+        repairAnimation.PlayRepairAnimation(0.5f);
+    }
+
+    public bool IsFullHealth()
+    {
+        return (health == states.Length);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

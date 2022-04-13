@@ -42,11 +42,22 @@ public class MushroomField : MonoBehaviour
 
     public void Heal()
     {
+        StartCoroutine(HealAnimation());
+    }
+
+    private IEnumerator HealAnimation()
+    {
         Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
 
         foreach (Mushroom mushroom in mushrooms)
         {
-            mushroom.Heal();
+            if (!mushroom.IsFullHealth())
+            {
+                mushroom.Heal();
+                yield return new WaitForSeconds(1.5f);
+            }
         }
+
+        GameManager.Instance.RespawnPlayer();
     }
 }
