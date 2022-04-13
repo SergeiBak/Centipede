@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\CentipedeSegment.cs" />
     <Compile Include="Assets\Scripts\Centipede.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

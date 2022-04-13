@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MushroomField : MonoBehaviour
 {
+    private List<Mushroom> mushrooms;
     private BoxCollider2D area;
     [SerializeField]
     private Mushroom prefab;
@@ -13,14 +14,10 @@ public class MushroomField : MonoBehaviour
     private void Awake()
     {
         area = GetComponent<BoxCollider2D>();
+        mushrooms = new List<Mushroom>();
     }
 
-    private void Start()
-    {
-        Generate();
-    }
-
-    private void Generate()
+    public void Generate()
     {
         Bounds bounds = area.bounds;
 
@@ -31,7 +28,18 @@ public class MushroomField : MonoBehaviour
             position.x = Mathf.Round(Random.Range(bounds.min.x, bounds.max.x));
             position.y = Mathf.Round(Random.Range(bounds.min.y, bounds.max.y));
 
-            Instantiate(prefab, position, Quaternion.identity, transform);
+            Mushroom mushroom = Instantiate(prefab, position, Quaternion.identity, transform);
+            mushrooms.Add(mushroom);
         }
+    }
+
+    public void Clear()
+    {
+        foreach (Mushroom mushroom in mushrooms)
+        {
+            Destroy(mushroom.gameObject);
+        }
+
+        mushrooms.Clear();
     }
 }

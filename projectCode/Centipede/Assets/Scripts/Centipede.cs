@@ -23,12 +23,7 @@ public class Centipede : MonoBehaviour
 
     private List<CentipedeSegment> segments = new List<CentipedeSegment>();
 
-    private void Start()
-    {
-        Respawn();
-    }
-
-    private void Respawn()
+    public void Respawn()
     {
         foreach (CentipedeSegment segment in segments)
         {
