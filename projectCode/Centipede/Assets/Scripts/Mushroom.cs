@@ -6,9 +6,8 @@ public class Mushroom : MonoBehaviour
 {
     [SerializeField]
     private Sprite[] states;
-
+    public int points = 1;
     private int health;
-
     private SpriteRenderer sr;
 
     private void Awake()
@@ -28,6 +27,7 @@ public class Mushroom : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            GameManager.Instance.IncreaseScore(points);
         }
     }
 

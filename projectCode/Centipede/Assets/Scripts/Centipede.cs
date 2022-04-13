@@ -7,6 +7,8 @@ public class Centipede : MonoBehaviour
     [SerializeField]
     private int size = 12;
     public float speed = 20f;
+    public int pointsHead = 100;
+    public int pointsBody = 10;
 
     public LayerMask collisionMask;
     public BoxCollider2D homeArea;
@@ -51,6 +53,8 @@ public class Centipede : MonoBehaviour
 
     public void Remove(CentipedeSegment segment)
     {
+        GameManager.Instance.IncreaseScore(segment.isHead ? pointsHead : pointsBody);
+
         Vector3 position = GridPosition(segment.transform.position);
         Instantiate(mushroomPrefab, position, Quaternion.identity);
 
@@ -68,6 +72,11 @@ public class Centipede : MonoBehaviour
 
         segments.Remove(segment);
         Destroy(segment.gameObject);
+
+        if (segments.Count == 0)
+        {
+            GameManager.Instance.NextLevel();
+        }
     }
 
     private CentipedeSegment GetSegmentAt(int index)

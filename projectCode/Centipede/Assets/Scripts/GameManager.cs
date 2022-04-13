@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class GameManager : MonoBehaviour
     private Blaster blaster;
     private Centipede centipede;
     private MushroomField mushroomField;
+
+    [SerializeField]
+    private Text scoreText;
+    [SerializeField]
+    private Text livesText;
+    [SerializeField]
+    private GameObject gameOver;
 
     private int score;
     private int lives;
@@ -52,23 +60,25 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        score = 0;
-        lives = 3;
+        SetScore(0);
+        SetLives(3);
 
         centipede.Respawn();
         blaster.Respawn();
         mushroomField.Clear();
         mushroomField.Generate();
+        gameOver.SetActive(false);
     }
 
     private void GameOver()
     {
         blaster.gameObject.SetActive(false);
+        gameOver.SetActive(true);
     }
 
     public void ResetRound()
     {
-        lives--;
+        SetLives(lives - 1);
 
         if (lives <= 0)
         {
@@ -81,8 +91,26 @@ public class GameManager : MonoBehaviour
         mushroomField.Heal();
     }
 
-    private void NextLevel()
+    public void NextLevel()
     {
+        centipede.speed *= 1.1f;
+        centipede.Respawn();
+    }
 
+    public void IncreaseScore(int amount)
+    {
+        SetScore(score + amount);
+    }
+
+    private void SetScore(int value)
+    {
+        score = value;
+        scoreText.text = score.ToString();
+    }
+
+    private void SetLives(int value)
+    {
+        lives = value;
+        livesText.text = lives.ToString();
     }
 }
