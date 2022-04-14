@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Centipede.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MushroomRepairAnim.cs" />
+    <Compile Include="Assets\Scripts\Spider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

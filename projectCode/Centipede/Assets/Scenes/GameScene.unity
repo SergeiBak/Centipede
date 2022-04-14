@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &60064530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60064531}
+  m_Layer: 0
+  m_Name: SpiderRightSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &60064531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60064530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.5, y: -10.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158915059
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1029,7 @@ GameObject:
   - component: {fileID: 1066341967}
   - component: {fileID: 1066341966}
   - component: {fileID: 1066341965}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1493,7 @@ RectTransform:
   - {fileID: 502640344}
   - {fileID: 1313931095}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1499,10 +1529,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eb4f7171e8bbf44b9a89dea4afe2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spiderPrefab: {fileID: 3720596967074527319, guid: fa8b90d15145f154fb71e23e7099c3e7, type: 3}
+  leftSpawn: {fileID: 1894702758}
+  rightSpawn: {fileID: 60064531}
+  homeArea: {fileID: 1692019018}
   scoreText: {fileID: 1288938288}
   livesText: {fileID: 158915061}
   gameOver: {fileID: 1313931094}
   maxIndex: 13
+  extraLifeScore: 12000
 --- !u!4 &1531581170
 Transform:
   m_ObjectHideFlags: 0
@@ -1527,7 +1562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692019019}
   - component: {fileID: 1692019018}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1569,6 +1604,36 @@ Transform:
   m_GameObject: {fileID: 1692019017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1894702757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894702758}
+  m_Layer: 0
+  m_Name: SpiderLeftSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894702758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894702757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.5, y: -10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1638,5 +1703,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

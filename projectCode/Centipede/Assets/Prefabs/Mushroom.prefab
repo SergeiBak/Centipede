@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+  healPoints: 5
   repairAnimation: {fileID: 681921480080366550}
   color1Sprites:
   - {fileID: -7408067273488958970, guid: c1be949ffd16778459c5783ca574ec93, type: 3}

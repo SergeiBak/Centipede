@@ -116,4 +116,12 @@ public class Mushroom : MonoBehaviour
             Damage(1);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Spider"))
+        {
+            Damage(health);
+        }
+    }
 }

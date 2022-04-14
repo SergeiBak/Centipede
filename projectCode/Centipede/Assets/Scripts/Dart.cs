@@ -56,6 +56,14 @@ public class Dart : MonoBehaviour
         collider.enabled = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        transform.SetParent(parent);
+        transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        collider.enabled = false;
+    }
+
     public void UpdateColor()
     {
         sr.sprite = sprites[GameManager.Instance.currentIndex];
