@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
-    //[SerializeField]
-    //private Sprite[] states;
     public int points = 1;
     private int health;
     private SpriteRenderer sr;
@@ -65,13 +63,17 @@ public class Mushroom : MonoBehaviour
         health = mushroomSprites[0].Length;
     }
 
+    private void Start()
+    {
+        RenderMushroom();
+    }
+
     private void Damage(int amount)
     {
         health -= amount;
 
         if (health > 0)
         {
-            // sr.sprite = states[states.Length - health]; // Encapsulate into separate method later
             RenderMushroom();
         } 
         else
@@ -86,13 +88,15 @@ public class Mushroom : MonoBehaviour
         int colorIndex = GameManager.Instance.currentIndex;
         int healthState = mushroomSprites[0].Length - health;
 
-        sr.sprite = mushroomSprites[colorIndex][healthState];
+        if (sr)
+        {
+            sr.sprite = mushroomSprites[colorIndex][healthState];
+        }
     }
 
     public void Heal()
     {
         health = mushroomSprites[0].Length;
-        // sr.sprite = states[0];
         RenderMushroom();
         repairAnimation.PlayRepairAnimation(0.1f);
     }

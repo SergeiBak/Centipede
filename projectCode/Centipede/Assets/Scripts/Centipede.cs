@@ -67,7 +67,7 @@ public class Centipede : MonoBehaviour
         if (segment.behind != null)
         {
             segment.behind.ahead = null;
-            segment.behind.sr.sprite = headSprite;
+            // segment.behind.sr.sprite = headSprite;
             segment.behind.UpdateHeadSegment();
         }
 
