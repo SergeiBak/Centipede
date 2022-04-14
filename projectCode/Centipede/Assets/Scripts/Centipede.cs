@@ -35,6 +35,8 @@ public class Centipede : MonoBehaviour
 
         segments.Clear();
 
+        int animationStartFrame = 0;
+
         for (int i = 0; i < size; i++)
         {
             Vector2 position = GridPosition(transform.position) + (Vector2.right * i);
@@ -42,6 +44,15 @@ public class Centipede : MonoBehaviour
             segment.sr.sprite = i == 0 ? headSprite : bodySprite;
             segment.centipede = this;
             segments.Add(segment);
+
+            if (animationStartFrame >= segment.SegmentAnimationLength())
+            {
+                animationStartFrame = 0;
+            }
+
+            segment.Restart(animationStartFrame);
+
+            animationStartFrame++;
         }
 
         for (int i = 0; i < segments.Count; i++)
@@ -67,7 +78,6 @@ public class Centipede : MonoBehaviour
         if (segment.behind != null)
         {
             segment.behind.ahead = null;
-            // segment.behind.sr.sprite = headSprite;
             segment.behind.UpdateHeadSegment();
         }
 

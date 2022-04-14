@@ -246,4 +246,9 @@ public class CentipedeSegment : MonoBehaviour
 
         Advance();
     }
+
+    public int SegmentAnimationLength()
+    {
+        return bodySprites[0].Length;
+    }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mushroom : MonoBehaviour
 {
     public int points = 1;
+    [SerializeField]
+    private int healPoints = 5;
     private int health;
     private SpriteRenderer sr;
     [SerializeField]
@@ -99,6 +101,7 @@ public class Mushroom : MonoBehaviour
         health = mushroomSprites[0].Length;
         RenderMushroom();
         repairAnimation.PlayRepairAnimation(0.1f);
+        GameManager.Instance.IncreaseScore(healPoints);
     }
 
     public bool IsFullHealth()
