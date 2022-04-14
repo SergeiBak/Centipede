@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     private int maxIndex = 13;
     public int currentIndex { get; private set; }
 
+    [SerializeField]
+    private int extraLifeScore = 12000;
+    private int nextMilestone;
+
     private void Awake()
     {
         if (Instance == null) // establish singleton pattern
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
         dart = FindObjectOfType<Dart>();
         centipede = FindObjectOfType<Centipede>();
         mushroomField = FindObjectOfType<MushroomField>();
+        nextMilestone = extraLifeScore;
 
         NewGame();
     }
@@ -127,6 +132,12 @@ public class GameManager : MonoBehaviour
     {
         score = value;
         scoreText.text = score.ToString();
+
+        if (score >= nextMilestone)
+        {
+            nextMilestone += extraLifeScore;
+            SetLives(lives + 1);
+        }
     }
 
     private void SetLives(int value)
