@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MushroomRepairAnim.cs" />
     <Compile Include="Assets\Scripts\Spider.cs" />
+    <Compile Include="Assets\Scripts\SpiderAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

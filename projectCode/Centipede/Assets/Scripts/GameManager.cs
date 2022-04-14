@@ -197,6 +197,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        ClearSpiders();
+
         if (roundActive)
         {
             bool movingRight = (Random.value > 0.5);
