@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe9c7ff0322c0a46a581168d868d55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationTime: 0.1
+  animationTime: 0.05
   loop: 1
   color1Sprites:
   - {fileID: 1664852130058347989, guid: c1be949ffd16778459c5783ca574ec93, type: 3}

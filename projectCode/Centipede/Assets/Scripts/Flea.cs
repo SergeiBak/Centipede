@@ -6,6 +6,8 @@ public class Flea : MonoBehaviour
 {
     private BoxCollider2D homeArea;
     [SerializeField]
+    private int points = 200;
+    [SerializeField]
     private float speed = 20f;
     [SerializeField]
     private float nextFleaDelay = 1f;
@@ -68,6 +70,7 @@ public class Flea : MonoBehaviour
 
         if (health <= 0)
         {
+            GameManager.Instance.IncreaseScore(points);
             GameManager.Instance.ReadyNextFlea(0);
             Destroy(gameObject);
         }
