@@ -13,6 +13,7 @@ public class Mushroom : MonoBehaviour
     MushroomRepairAnim repairAnimation;
 
     private Sprite[][] mushroomSprites;
+    [Header("Mushroom Sprites")]
     [SerializeField]
     private Sprite[] color1Sprites;
     [SerializeField]
@@ -42,7 +43,41 @@ public class Mushroom : MonoBehaviour
     [SerializeField]
     private Sprite[] color14Sprites;
 
-    private void Awake()
+    private Sprite[][] infectedMushroomSprites;
+    [Header("Infected Mushroom Sprites")]
+    [SerializeField]
+    private Sprite[] infectedColor1Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor2Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor3Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor4Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor5Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor6Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor7Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor8Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor9Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor10Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor11Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor12Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor13Sprites;
+    [SerializeField]
+    private Sprite[] infectedColor14Sprites;
+
+    [HideInInspector]
+    public bool infected = false;
+
+private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
 
@@ -61,6 +96,22 @@ public class Mushroom : MonoBehaviour
         mushroomSprites[11] = color12Sprites;
         mushroomSprites[12] = color13Sprites;
         mushroomSprites[13] = color14Sprites;
+
+        infectedMushroomSprites = new Sprite[14][];
+        infectedMushroomSprites[0] = infectedColor1Sprites;
+        infectedMushroomSprites[1] = infectedColor2Sprites;
+        infectedMushroomSprites[2] = infectedColor3Sprites;
+        infectedMushroomSprites[3] = infectedColor4Sprites;
+        infectedMushroomSprites[4] = infectedColor5Sprites;
+        infectedMushroomSprites[5] = infectedColor6Sprites;
+        infectedMushroomSprites[6] = infectedColor7Sprites;
+        infectedMushroomSprites[7] = infectedColor8Sprites;
+        infectedMushroomSprites[8] = infectedColor9Sprites;
+        infectedMushroomSprites[9] = infectedColor10Sprites;
+        infectedMushroomSprites[10] = infectedColor11Sprites;
+        infectedMushroomSprites[11] = infectedColor12Sprites;
+        infectedMushroomSprites[12] = infectedColor13Sprites;
+        infectedMushroomSprites[13] = infectedColor14Sprites;
 
         health = mushroomSprites[0].Length;
     }
@@ -90,14 +141,35 @@ public class Mushroom : MonoBehaviour
         int colorIndex = GameManager.Instance.currentIndex;
         int healthState = mushroomSprites[0].Length - health;
 
-        if (sr)
+        if (!sr)
+        {
+            return;
+        }
+
+        if (!infected)
         {
             sr.sprite = mushroomSprites[colorIndex][healthState];
         }
+        else
+        {
+            sr.sprite = infectedMushroomSprites[colorIndex][healthState];
+        }
+    }
+
+    public void Infect()
+    {
+        if (infected)
+        {
+            return;
+        }
+
+        infected = true;
+        RenderMushroom();
     }
 
     public void Heal()
     {
+        infected = false;
         health = mushroomSprites[0].Length;
         RenderMushroom();
         repairAnimation.PlayRepairAnimation(0.1f);

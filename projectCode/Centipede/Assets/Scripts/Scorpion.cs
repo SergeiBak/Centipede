@@ -67,5 +67,11 @@ public class Scorpion : MonoBehaviour
             collision.enabled = false;
             ScorpionShot();
         }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Mushroom")) // infect mushroom
+        {
+            Mushroom mushroom = collision.gameObject.GetComponent<Mushroom>();
+            mushroom.Infect();
+        }
     }
 }

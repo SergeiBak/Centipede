@@ -52,7 +52,7 @@ public class MushroomField : MonoBehaviour
 
         foreach (Mushroom mushroom in mushrooms)
         {
-            if (!mushroom.IsFullHealth())
+            if (!mushroom.IsFullHealth() || mushroom.infected)
             {
                 mushroom.Heal();
                 yield return new WaitForSeconds(0.3f);

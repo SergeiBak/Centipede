@@ -196,6 +196,77 @@ MonoBehaviour:
   - {fileID: -4232355588945362563, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   - {fileID: -5351940450731581226, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   - {fileID: 2969498867785452914, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor1Sprites:
+  - {fileID: -1085297747504119562, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 402490535150655773, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 2327123411544187768, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -4981086824759980469, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor2Sprites:
+  - {fileID: 3502741614100633108, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -4009917902149719172, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5364237545485833537, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -3237798773603652583, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor3Sprites:
+  - {fileID: -6351666238331503383, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -34294236914334916, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 3878601210385473901, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -4506494050436425320, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor4Sprites:
+  - {fileID: 836158547266372011, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -7394029231316493205, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 3798195666036937501, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -2295697999042180150, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor5Sprites:
+  - {fileID: -7871739722924089670, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -7112931840237609235, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 1922018760523853550, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 12105120364341908, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor6Sprites:
+  - {fileID: -3192384487818855812, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 8066123849736563311, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -2707713089268383921, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 6543117360737779578, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor7Sprites:
+  - {fileID: -5636869033101303285, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5681664433943573181, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 2331596171581069021, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -4762388065616382487, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor8Sprites:
+  - {fileID: -1686787938033231713, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -3179242436606932755, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -6318074042859802264, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 1624365694504235616, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor9Sprites:
+  - {fileID: 4088118445420357837, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -6242077306001440542, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -1598553332937901240, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -3733023017618936125, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor10Sprites:
+  - {fileID: -949775650921490579, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -1969829363105476573, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4569790512105464206, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -1126900522118319854, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor11Sprites:
+  - {fileID: 239675931762683132, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 2784187931079329694, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5890632032411720138, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -8155172728911598738, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor12Sprites:
+  - {fileID: -5408661353681546799, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4965062104659675796, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 8184735609166453621, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5776541862457844950, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor13Sprites:
+  - {fileID: -837429853942604504, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 4265662821991957149, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5806172792868618764, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 5722306896985097082, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infectedColor14Sprites:
+  - {fileID: -8158076457513517536, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: 3400371171713205411, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5739425174285058517, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  - {fileID: -5008498921564533788, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  infected: 0
 --- !u!1 &3471251527058449786
 GameObject:
   m_ObjectHideFlags: 0
