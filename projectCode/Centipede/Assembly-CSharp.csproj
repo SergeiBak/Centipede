@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
     <Compile Include="Assets\Scripts\SpiderDeathAnimation.cs" />
+    <Compile Include="Assets\Scripts\Flea.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

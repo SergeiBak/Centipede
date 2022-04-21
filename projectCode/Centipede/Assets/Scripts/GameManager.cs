@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     public BoxCollider2D homeArea;
 
     [SerializeField]
+    private Flea fleaPrefab;
+    public BoxCollider2D fleaSpawnArea;
+
+    [SerializeField]
     private Text scoreText;
     [SerializeField]
     private Text livesText;
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
     private int nextMilestone;
 
     bool roundActive = true;
+
+    private bool fleaActive = false;
 
     private void Awake()
     {
@@ -65,6 +71,8 @@ public class GameManager : MonoBehaviour
         centipede = FindObjectOfType<Centipede>();
         mushroomField = FindObjectOfType<MushroomField>();
         nextMilestone = extraLifeScore;
+
+        InvokeRepeating("CheckMushroomsInHomeZone", 5.0f, 0.5f);
 
         NewGame();
     }
@@ -95,6 +103,48 @@ public class GameManager : MonoBehaviour
         mushroomField.Clear();
         mushroomField.Generate();
         gameOver.SetActive(false);
+    }
+
+    public void ReadyNextFlea(float delay)
+    {
+        StartCoroutine(SetFleaNotActive(delay));
+    }
+
+    private IEnumerator SetFleaNotActive(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        fleaActive = false;
+    }
+
+    private void CheckMushroomsInHomeZone()
+    {
+        int mushroomCount = 0;
+
+        Mushroom[] mushrooms = FindObjectsOfType<Mushroom>();
+
+        foreach (Mushroom mushroom in mushrooms) // check number of mushrooms in home zone
+        {
+            if (mushroom.transform.position.y <= homeArea.bounds.max.y)
+            {
+                mushroomCount++;
+            }
+        }
+
+        if (mushroomCount < 5 && !fleaActive)
+        {
+            fleaActive = true;
+            SpawnFlea();
+        }
+    }
+
+    private void SpawnFlea()
+    {
+        Vector2 spawnPos = fleaSpawnArea.transform.position;
+        spawnPos.x = Random.Range(fleaSpawnArea.bounds.min.x, fleaSpawnArea.bounds.max.x);
+        spawnPos = GridPosition(spawnPos);
+
+        Instantiate(fleaPrefab, spawnPos, Quaternion.identity);
     }
 
     private void GameOver()

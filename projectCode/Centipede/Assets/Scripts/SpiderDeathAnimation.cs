@@ -145,7 +145,6 @@ public class SpiderDeathAnimation : MonoBehaviour
         else if (!scoreShown)
         {
             scoreShown = true;
-            Debug.Log(colorIndex + " " + scoreTypeEarned);
             sr.sprite = scoreSprites[colorIndex][scoreTypeEarned];
             Destroy(this.gameObject, scoreHangTime);
         }
