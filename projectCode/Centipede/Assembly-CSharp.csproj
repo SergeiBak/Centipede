@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\SpiderDeathAnimation.cs" />
     <Compile Include="Assets\Scripts\Flea.cs" />
     <Compile Include="Assets\Scripts\FleaAnimation.cs" />
+    <Compile Include="Assets\Scripts\Scorpion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

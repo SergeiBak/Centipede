@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     public BoxCollider2D fleaSpawnArea;
 
     [SerializeField]
+    private Scorpion scorpionPrefab;
+    public BoxCollider2D scorpionSpawnArea;
+
+    [SerializeField]
     private Text scoreText;
     [SerializeField]
     private Text livesText;
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
     bool roundActive = true;
 
     private bool fleaActive = false;
+    private bool scorpionActive = false;
 
     private void Awake()
     {
@@ -73,6 +78,7 @@ public class GameManager : MonoBehaviour
         nextMilestone = extraLifeScore;
 
         InvokeRepeating("CheckMushroomsInHomeZone", 5.0f, 0.5f);
+        InvokeRepeating("CheckIfTimeToSpawnScorpion", 2.5f, 0.5f);
 
         NewGame();
     }
@@ -145,6 +151,40 @@ public class GameManager : MonoBehaviour
         spawnPos = GridPosition(spawnPos);
 
         Instantiate(fleaPrefab, spawnPos, Quaternion.identity);
+    }
+
+    public void ReadyNextScorpion(float delay)
+    {
+        StartCoroutine(SetScorpionNotActive(delay));
+    }
+
+    private IEnumerator SetScorpionNotActive(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        scorpionActive = false;
+    }
+
+    private void CheckIfTimeToSpawnScorpion()
+    {
+        if (!scorpionActive)
+        {
+            scorpionActive = true;
+
+            SpawnScorpion();
+        }
+    }
+
+    private void SpawnScorpion()
+    {
+        Vector2 spawnPos;
+        bool movingRight = (Random.value > 0.5);
+        spawnPos.x = (movingRight ? scorpionSpawnArea.bounds.min.x : scorpionSpawnArea.bounds.max.x);
+        spawnPos.y = Random.Range(scorpionSpawnArea.bounds.min.y, scorpionSpawnArea.bounds.max.y);
+        spawnPos = GridPosition(spawnPos);
+
+        Scorpion scorpion = Instantiate(scorpionPrefab, spawnPos, Quaternion.identity);
+        scorpion.movingRight = movingRight;
     }
 
     private void GameOver()
