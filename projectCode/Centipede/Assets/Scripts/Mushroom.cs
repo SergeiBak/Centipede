@@ -141,7 +141,7 @@ private void Awake()
         int colorIndex = GameManager.Instance.currentIndex;
         int healthState = mushroomSprites[0].Length - health;
 
-        if (!sr)
+        if (!sr || healthState >= mushroomSprites[0].Length || healthState < 0)
         {
             return;
         }

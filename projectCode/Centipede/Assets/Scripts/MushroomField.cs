@@ -64,7 +64,11 @@ public class MushroomField : MonoBehaviour
 
     private static int ComparePos(Mushroom room1, Mushroom room2) // sort mushrooms based on screen position from left to right
     {
-        return room1.gameObject.transform.position.x.CompareTo(room2.gameObject.transform.position.x);
+        if(room1.gameObject.transform.position.x != room2.gameObject.transform.position.x)
+        {
+            return room1.gameObject.transform.position.x.CompareTo(room2.gameObject.transform.position.x);
+        }
+        return room1.gameObject.transform.position.y.CompareTo(room2.gameObject.transform.position.y);
     }
 
     public void UpdateMushroomColors()
