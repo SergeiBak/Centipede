@@ -127,6 +127,7 @@ MonoBehaviour:
   spiderSpeed: 10
   reachedSideDelay: 1.9
   killedDelay: 4
+  deathAnimationPrefab: {fileID: 4613287822226094417, guid: bbea7fc5772b6df45a42cb45dde0c18d, type: 3}
 --- !u!50 &-35373196203100526
 Rigidbody2D:
   serializedVersion: 4

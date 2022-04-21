@@ -20,6 +20,9 @@ public class Spider : MonoBehaviour
     private float maxY;
     private float minY;
 
+    [SerializeField]
+    private SpiderDeathAnimation deathAnimationPrefab;
+
     private void Awake()
     {
         leftSpawn = GameManager.Instance.leftSpawn;
@@ -124,6 +127,28 @@ public class Spider : MonoBehaviour
     private void SpiderShot()
     {
         GameManager.Instance.SpawnSpider(killedDelay);
+        SpiderDeathAnimation spiderDeath = Instantiate(deathAnimationPrefab, transform.position, Quaternion.identity);
+
+        Blaster player = FindObjectOfType<Blaster>();
+        float distance = Vector2.Distance(player.gameObject.transform.position, transform.position);
+        int scoreType = 0; 
+
+        if (distance < 3f) // 900 pts
+        {
+            scoreType = 2;
+            GameManager.Instance.IncreaseScore(600);
+        }
+        else if (distance < 6f) // 600 pts
+        {
+            scoreType = 1;
+            GameManager.Instance.IncreaseScore(900);
+        }
+        else // 300 pts
+        {
+            GameManager.Instance.IncreaseScore(300);
+        }
+
+        spiderDeath.scoreTypeEarned = scoreType;
         Destroy(gameObject);
     }
 }
