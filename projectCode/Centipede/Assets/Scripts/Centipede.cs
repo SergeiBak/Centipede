@@ -24,6 +24,8 @@ public class Centipede : MonoBehaviour
     [SerializeField]
     private CentipedeSegment segmentPrefab;
     [SerializeField]
+    private CentipedeDeathAnimation deathPrefab;
+    [SerializeField]
     private Mushroom mushroomPrefab;
 
     private List<CentipedeSegment> segments = new List<CentipedeSegment>();
@@ -87,6 +89,9 @@ public class Centipede : MonoBehaviour
             segment.behind.ahead = null;
             segment.behind.UpdateHeadSegment();
         }
+
+        Vector2 segmentLocation = segment.transform.position;
+        Instantiate(deathPrefab, segmentLocation, Quaternion.identity);
 
         segments.Remove(segment);
         Destroy(segment.gameObject);

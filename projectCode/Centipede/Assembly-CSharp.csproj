@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Scorpion.cs" />
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
+    <Compile Include="Assets\Scripts\CentipedeDeathAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
