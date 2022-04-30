@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private int score;
     private int lives;
+    private int wave;
 
     [SerializeField]
     private int maxIndex = 13;
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         SetColorIndex(0);
+        wave = 1;
+        UpdateCentipedeSpeed();
 
         roundActive = true;
         SpawnSpider(4f);
@@ -240,6 +243,56 @@ public class GameManager : MonoBehaviour
         centipede.Respawn();
 
         SetColorIndex(currentIndex + 1);
+
+        wave++;
+        if (wave > 12)
+        {
+            wave = 1;
+        }
+        UpdateCentipedeSpeed();
+    }
+
+    private void UpdateCentipedeSpeed()
+    {
+        switch (wave)
+        {
+            case 1:
+                SetCentipedeSpeed(centipede.fastSpeed);
+                break;
+            case 2:
+                SetCentipedeSpeed(centipede.slowSpeed);
+                break;
+            case 3:
+                SetCentipedeSpeed(centipede.fastSpeed);
+                break;
+            case 4:
+                SetCentipedeSpeed(centipede.slowSpeed);
+                break;
+            case 5:
+                SetCentipedeSpeed(centipede.fastSpeed);
+                break;
+            case 6:
+                SetCentipedeSpeed(centipede.slowSpeed);
+                break;
+            case 7:
+                SetCentipedeSpeed(centipede.fastSpeed);
+                break;
+            case 8:
+                SetCentipedeSpeed(centipede.slowSpeed);
+                break;
+            default:
+                SetCentipedeSpeed(centipede.fastSpeed);
+                break;
+        }
+    }
+
+    private void SetCentipedeSpeed(float speed)
+    {
+        centipede.SetOriginalSpeed(speed);
+        if (!(centipede.speed == 0))
+        {
+            centipede.speed = speed;
+        }
     }
 
     public void IncreaseScore(int amount)

@@ -56,20 +56,20 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Flea.cs" />
     <Compile Include="Assets\Scripts\SpiderAnimation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Blaster.cs" />
     <Compile Include="Assets\Scripts\Spider.cs" />
+    <Compile Include="Assets\Scripts\FleaAnimation.cs" />
     <Compile Include="Assets\Scripts\CentipedeSegment.cs" />
     <Compile Include="Assets\Scripts\MushroomRepairAnim.cs" />
     <Compile Include="Assets\Scripts\Mushroom.cs" />
     <Compile Include="Assets\Scripts\Centipede.cs" />
+    <Compile Include="Assets\Scripts\SpiderDeathAnimation.cs" />
+    <Compile Include="Assets\Scripts\Scorpion.cs" />
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
-    <Compile Include="Assets\Scripts\SpiderDeathAnimation.cs" />
-    <Compile Include="Assets\Scripts\Flea.cs" />
-    <Compile Include="Assets\Scripts\FleaAnimation.cs" />
-    <Compile Include="Assets\Scripts\Scorpion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

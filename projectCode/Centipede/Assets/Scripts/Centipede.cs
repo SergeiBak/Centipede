@@ -6,7 +6,9 @@ public class Centipede : MonoBehaviour
 {
     [SerializeField]
     private int size = 12;
-    public float speed = 20f;
+    public float speed;
+    public float slowSpeed = 10f;
+    public float fastSpeed = 20f;
     private float originalSpeed;
     public int pointsHead = 100;
     public int pointsBody = 10;
@@ -25,6 +27,11 @@ public class Centipede : MonoBehaviour
     private Mushroom mushroomPrefab;
 
     private List<CentipedeSegment> segments = new List<CentipedeSegment>();
+
+    private void Start()
+    {
+        speed = slowSpeed;
+    }
 
     public void Respawn()
     {
@@ -116,5 +123,10 @@ public class Centipede : MonoBehaviour
     public void ResumeCentipede()
     {
         speed = originalSpeed;
+    }
+
+    public void SetOriginalSpeed(float newSpeed)
+    {
+        originalSpeed = newSpeed;
     }
 }

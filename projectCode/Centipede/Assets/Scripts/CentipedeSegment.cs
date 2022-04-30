@@ -203,10 +203,10 @@ public class CentipedeSegment : MonoBehaviour
 
         if (behind != null)
         {
-            if (isInfected)
-            {
-                behind.isInfected = true;
-            }
+            //if (isInfected)
+            //{
+            //    behind.isInfected = true;
+            //}
             behind.UpdateBodySegment();
         }
     }

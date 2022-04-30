@@ -16,9 +16,12 @@ public class Scorpion : MonoBehaviour
 
     public bool movingRight { private get; set; }
 
+    private SpriteRenderer sr;
+
     private void Awake()
     {
         spawnArea = GameManager.Instance.scorpionSpawnArea;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -28,6 +31,11 @@ public class Scorpion : MonoBehaviour
 
         targetPosition = transform.position;
         targetPosition.x = (movingRight ? (spawnArea.bounds.max.x + 2f) : (spawnArea.bounds.min.x - 2f));
+
+        if (movingRight)
+        {
+            sr.flipX = true;
+        }
     }
 
     private void Update()
