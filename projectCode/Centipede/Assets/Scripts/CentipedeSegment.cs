@@ -18,6 +18,8 @@ public class CentipedeSegment : MonoBehaviour
     public int animationFrame { get; private set; }
     [SerializeField]
     private bool loop = true;
+    [HideInInspector]
+    public bool isInfected = false;
 
     private Sprite[][] headSprites;
     [Header("Head Sprites")]
@@ -148,8 +150,44 @@ public class CentipedeSegment : MonoBehaviour
         targetPosition = gridPosition;
         targetPosition.x += direction.x;
 
-        if(Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, centipede.collisionMask))
+        if (isInfected)
         {
+            direction.x = -direction.x;
+
+            targetPosition.x = gridPosition.x;
+            if (direction.x == 1f)
+            {
+                targetPosition.x += 1f;
+            }
+            else
+            {
+                targetPosition.x -= 1f;
+            }
+
+            targetPosition.y = gridPosition.y + direction.y;
+
+            Bounds homeBounds = centipede.homeArea.bounds;
+            if ((direction.y == 1f && targetPosition.y > homeBounds.max.y) || (direction.y == -1f && targetPosition.y < homeBounds.min.y)) // reverse direction
+            {
+                isInfected = false;
+                direction.y = -direction.y;
+                targetPosition.y = gridPosition.y + direction.y;
+            }
+        }
+        else if (Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, centipede.collisionMask))
+        {
+            Collider2D col = Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, centipede.collisionMask);
+            Mushroom mushroom = col.gameObject.GetComponent<Mushroom>();
+
+            if (mushroom != null)
+            {
+                if (mushroom.infected)
+                {
+                    isInfected = true;
+                    direction.y = -1f;
+                }
+            }
+
             direction.x = -direction.x;
 
             targetPosition.x = gridPosition.x;
@@ -165,6 +203,10 @@ public class CentipedeSegment : MonoBehaviour
 
         if (behind != null)
         {
+            if (isInfected)
+            {
+                behind.isInfected = true;
+            }
             behind.UpdateBodySegment();
         }
     }
