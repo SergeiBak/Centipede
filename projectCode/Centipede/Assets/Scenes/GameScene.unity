@@ -962,6 +962,7 @@ MonoBehaviour:
   - {fileID: 3198112962778272501, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   - {fileID: 8818960569506528757, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
   - {fileID: -8140214785609352426, guid: c1be949ffd16778459c5783ca574ec93, type: 3}
+  playerDeathPrefab: {fileID: 6721820828686505777, guid: efba827028a2aba438bdf4cd4df1e630, type: 3}
 --- !u!61 &928239548
 BoxCollider2D:
   m_ObjectHideFlags: 0

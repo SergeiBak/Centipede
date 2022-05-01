@@ -59,7 +59,10 @@ public class MushroomField : MonoBehaviour
             }
         }
 
-        GameManager.Instance.RespawnPlayer();
+        if (!GameManager.Instance.NoLivesLeft())
+        {
+            GameManager.Instance.RespawnPlayer();
+        }
     }
 
     private static int ComparePos(Mushroom room1, Mushroom room2) // sort mushrooms based on screen position from left to right

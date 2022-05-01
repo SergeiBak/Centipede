@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (lives <= 0 && Input.GetKeyDown(KeyCode.R))
+        if (NoLivesLeft() && Input.GetKeyDown(KeyCode.R))
         {
             NewGame();
         }
@@ -95,6 +95,11 @@ public class GameManager : MonoBehaviour
         {
             SetColorIndex(currentIndex + 1);
         }
+    }
+
+    public bool NoLivesLeft()
+    {
+        return lives <= 0;
     }
 
     private void NewGame()
@@ -196,7 +201,15 @@ public class GameManager : MonoBehaviour
 
         roundActive = false;
         ClearSpiders();
+        blaster.PlayDeathAnimation();
+        StartCoroutine(StartEndSequence());
+    }
 
+    private IEnumerator StartEndSequence(float delay = 1.5f)
+    {
+        yield return new WaitForSeconds(delay);
+
+        mushroomField.Heal();
         gameOver.SetActive(true);
     }
 
@@ -213,8 +226,17 @@ public class GameManager : MonoBehaviour
         roundActive = false;
         ClearSpiders();
 
+        blaster.PlayDeathAnimation();
+
         blaster.gameObject.SetActive(false);
         centipede.PauseCentipede();
+        StartCoroutine(StartRepairSequence());
+    }
+
+    private IEnumerator StartRepairSequence(float delay = 1.5f)
+    {
+        yield return new WaitForSeconds(delay);
+
         mushroomField.Heal();
     }
 

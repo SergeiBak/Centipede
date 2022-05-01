@@ -14,6 +14,9 @@ public class Blaster : MonoBehaviour
     [SerializeField]
     private Sprite[] sprites;
 
+    [SerializeField]
+    private CentipedeDeathAnimation playerDeathPrefab;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,5 +48,10 @@ public class Blaster : MonoBehaviour
     public void UpdateColor()
     {
         sr.sprite = sprites[GameManager.Instance.currentIndex];
+    }
+
+    public void PlayDeathAnimation()
+    {
+        Instantiate(playerDeathPrefab, transform.position, Quaternion.identity);
     }
 }
