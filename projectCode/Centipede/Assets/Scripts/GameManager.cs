@@ -90,11 +90,6 @@ public class GameManager : MonoBehaviour
             canRestart = false;
             NewGame();
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SetColorIndex(currentIndex + 1);
-        }
     }
 
     public bool NoLivesLeft()
