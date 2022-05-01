@@ -13,6 +13,8 @@ public class Flea : MonoBehaviour
     private float nextFleaDelay = 1f;
     [SerializeField]
     private Mushroom mushroomPrefab;
+    [SerializeField]
+    private CentipedeDeathAnimation deathPrefab;
     private float minY;
 
     private int health = 2;
@@ -72,6 +74,7 @@ public class Flea : MonoBehaviour
         {
             GameManager.Instance.IncreaseScore(points);
             GameManager.Instance.ReadyNextFlea(0);
+            Instantiate(deathPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else
@@ -87,6 +90,7 @@ public class Flea : MonoBehaviour
             collision.collider.enabled = false;
             GameManager.Instance.ResetRound();
             GameManager.Instance.ReadyNextFlea(5f);
+            Instantiate(deathPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             return;
         }

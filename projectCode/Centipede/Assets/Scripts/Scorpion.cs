@@ -13,6 +13,8 @@ public class Scorpion : MonoBehaviour
     private float scorpionSpeed = 10f;
     [SerializeField]
     private int points = 1000;
+    [SerializeField]
+    private CentipedeDeathAnimation deathPrefab;
 
     public bool movingRight { private get; set; }
 
@@ -65,6 +67,7 @@ public class Scorpion : MonoBehaviour
     {
         GameManager.Instance.IncreaseScore(points);
         GameManager.Instance.ReadyNextScorpion(0);
+        Instantiate(deathPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

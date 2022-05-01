@@ -102,6 +102,7 @@ MonoBehaviour:
   speed: 20
   nextFleaDelay: 2
   mushroomPrefab: {fileID: 7135704852372414813, guid: b158ae90ba8d32b40bd61048eafdbf5c, type: 3}
+  deathPrefab: {fileID: 4791899374539084906, guid: 1262d87e3412c6140a0585103536e3f4, type: 3}
 --- !u!61 &1158417794955724142
 BoxCollider2D:
   m_ObjectHideFlags: 0

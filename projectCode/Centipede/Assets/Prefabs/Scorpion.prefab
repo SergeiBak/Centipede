@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scorpionSpeed: 10
   points: 1000
+  deathPrefab: {fileID: 4791899374539084906, guid: 1262d87e3412c6140a0585103536e3f4, type: 3}
 --- !u!114 &-2018661117897699585
 MonoBehaviour:
   m_ObjectHideFlags: 0
