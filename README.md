@@ -21,7 +21,22 @@ In order to play this version of Centipede, follow the [link](https://sergeibak.
 
 ## Code
 A brief description of all of the classes is as follows:
-- The `Board` class handles the rendering of the board based on mine locations & cell states.
+- The `Blaster` class handles player movement as well as the state of the Player/Blaster.
+- The `Centipede` class handles the overall state & spawning of the centipede.
+- The `CentipedeDeathAnimation` class handles the death explosion animation used by the centipede + flea + scorpion.
+- The `CentipedeSegment` class handles the movement + animation logic for each segment of the centipede as well as tracking its state.
+- The `Dart` class handles the player input & movement of the dart projectile.
+- The `Flea` class handles the logic of the flea enemy, which includes falling from top of screen & spawning mushrooms.
+- The `FleaAnimation` class handles the animation of the flea.
+- The `GameManager` is the game's main class, and keeps track of the state of the game as well as spawning enemies.
+- The `Mushroom` class represents each mushroom on the board, and keeps track of its health as well as whether it is infected.
+- The `MushroomField` class keeps track of all active mushrooms, and is responsible for generating/healing them.
+- The `MushroomRepairAnim` class is responsible for the repair animation done on a damaged mushroom when resetting a round.
+- The `Scorpion` class handles the logic of the scorpion enemy, which includes moving across the screen & infecting mushrooms.
+- The `Spider` class handles the logic of the spider enemy, which includes moving across the home zone & eating mushrooms.
+- The `SpiderAnimation` class handles the animation of the spider's movement.
+- The `SpiderDeathAnimation` class handles the animation of the spider's death, as well as displaying the score earned.
+- The `UIManager` class updates the state/color of all of the UI, as well as tracking high score.
 
 ## Technologies
 - Unity
