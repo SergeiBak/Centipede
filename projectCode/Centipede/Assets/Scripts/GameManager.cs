@@ -95,11 +95,6 @@ public class GameManager : MonoBehaviour
         {
             SetColorIndex(currentIndex + 1);
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SetScore(score + 10000);
-        }
     }
 
     public bool NoLivesLeft()
@@ -248,6 +243,8 @@ public class GameManager : MonoBehaviour
 
     public void CanRestart()
     {
+        UIManager.Instance.CheckHighScore(score);
+
         gameOver.SetActive(true);
         canRestart = true;
     }
@@ -392,6 +389,7 @@ public class GameManager : MonoBehaviour
         dart.UpdateColor();
         mushroomField.UpdateMushroomColors();
         UIManager.Instance.UpdateLiveColors();
+        UIManager.Instance.UpdateTextColors();
     }
 
     public void SpawnSpider(float delay)

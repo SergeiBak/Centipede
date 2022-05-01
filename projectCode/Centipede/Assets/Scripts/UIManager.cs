@@ -10,9 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text highScoreText;
     [SerializeField]
+    private Text scoreText;
+    [SerializeField]
     private Image[] lifeIcons;
     [SerializeField]
     private Sprite[] lifeSprites;
+    [SerializeField]
+    private Color[] textColors;
 
     private void Awake()
     {
@@ -39,6 +43,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         HideLifeIcons();
+        UpdateTextColors();
+        UpdateLiveColors();
     }
 
     private void SetupStats()
@@ -49,6 +55,15 @@ public class UIManager : MonoBehaviour
         }
 
         highScoreText.text = PlayerPrefs.GetInt("CentipedeHighScore").ToString();
+    }
+
+    public void CheckHighScore(int score)
+    {
+        if (score > PlayerPrefs.GetInt("CentipedeHighScore"))
+        {
+            PlayerPrefs.SetInt("CentipedeHighScore", score);
+            highScoreText.text = PlayerPrefs.GetInt("CentipedeHighScore").ToString();
+        }
     }
 
     public void UpdateLives(int lives)
@@ -78,5 +93,11 @@ public class UIManager : MonoBehaviour
         {
             life.sprite = lifeSprites[GameManager.Instance.currentIndex];
         }
+    }
+
+    public void UpdateTextColors()
+    {
+        scoreText.color = textColors[GameManager.Instance.currentIndex];
+        highScoreText.color = textColors[GameManager.Instance.currentIndex];
     }
 }
