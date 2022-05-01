@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private int nextMilestone;
 
     bool roundActive = true;
+    bool canRestart = false;
 
     private bool fleaActive = false;
     private bool scorpionActive = false;
@@ -86,8 +87,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (NoLivesLeft() && Input.GetKeyDown(KeyCode.R))
+        if (NoLivesLeft() && canRestart && Input.GetKeyDown(KeyCode.R))
         {
+            canRestart = false;
             NewGame();
         }
 
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
 
         roundActive = true;
         SpawnSpider(4f);
+        centipede.ResumeCentipede();
         centipede.Respawn();
         blaster.Respawn();
         mushroomField.Clear();
@@ -145,7 +148,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (mushroomCount < 5 && !fleaActive)
+        if (mushroomCount < 5 && !fleaActive && blaster.isActiveAndEnabled)
         {
             fleaActive = true;
             SpawnFlea();
@@ -159,6 +162,18 @@ public class GameManager : MonoBehaviour
         spawnPos = GridPosition(spawnPos);
 
         Instantiate(fleaPrefab, spawnPos, Quaternion.identity);
+    }
+
+    private void ClearFleas()
+    {
+        Flea[] fleas = FindObjectsOfType<Flea>();
+
+        foreach (Flea flea in fleas)
+        {
+            Destroy(flea.gameObject);
+        }
+
+        fleaActive = false;
     }
 
     public void ReadyNextScorpion(float delay)
@@ -197,11 +212,14 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        blaster.PlayDeathAnimation();
         blaster.gameObject.SetActive(false);
 
         roundActive = false;
         ClearSpiders();
-        blaster.PlayDeathAnimation();
+        ClearFleas();
+        centipede.PauseCentipede();
+
         StartCoroutine(StartEndSequence());
     }
 
@@ -210,7 +228,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         mushroomField.Heal();
+    }
+
+    public void CanRestart()
+    {
         gameOver.SetActive(true);
+        canRestart = true;
     }
 
     public void ResetRound()
@@ -225,6 +248,7 @@ public class GameManager : MonoBehaviour
 
         roundActive = false;
         ClearSpiders();
+        ClearFleas();
 
         blaster.PlayDeathAnimation();
 
