@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         nextMilestone = extraLifeScore;
 
         InvokeRepeating("CheckMushroomsInHomeZone", 5.0f, 0.5f);
-        InvokeRepeating("CheckIfTimeToSpawnScorpion", 2.5f, 0.5f);
+        InvokeRepeating("CheckIfTimeToSpawnScorpion", 12f, 9f);
 
         NewGame();
     }
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (mushroomCount < 5 && !fleaActive && blaster.isActiveAndEnabled)
+        if (mushroomCount < 5 && !fleaActive && blaster.isActiveAndEnabled && !scorpionActive)
         {
             fleaActive = true;
             SpawnFlea();
@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckIfTimeToSpawnScorpion()
     {
-        if (!scorpionActive)
+        if (!scorpionActive && !fleaActive && blaster.isActiveAndEnabled)
         {
             scorpionActive = true;
 
@@ -210,6 +210,18 @@ public class GameManager : MonoBehaviour
         scorpion.movingRight = movingRight;
     }
 
+    private void ClearScorpions()
+    {
+        Scorpion[] scorpions = FindObjectsOfType<Scorpion>();
+
+        foreach (Scorpion scorpion in scorpions)
+        {
+            Destroy(scorpion.gameObject);
+        }
+
+        scorpionActive = false;
+    }
+
     private void GameOver()
     {
         blaster.PlayDeathAnimation();
@@ -218,6 +230,7 @@ public class GameManager : MonoBehaviour
         roundActive = false;
         ClearSpiders();
         ClearFleas();
+        ClearScorpions();
         centipede.PauseCentipede();
 
         StartCoroutine(StartEndSequence());
@@ -249,6 +262,7 @@ public class GameManager : MonoBehaviour
         roundActive = false;
         ClearSpiders();
         ClearFleas();
+        ClearScorpions();
 
         blaster.PlayDeathAnimation();
 
@@ -285,7 +299,6 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        centipede.speed *= 1.1f;
         centipede.Respawn();
 
         SetColorIndex(currentIndex + 1);
