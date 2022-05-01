@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
     <Compile Include="Assets\Scripts\CentipedeDeathAnimation.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

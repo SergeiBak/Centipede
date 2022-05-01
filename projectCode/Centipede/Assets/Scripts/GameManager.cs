@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text scoreText;
     [SerializeField]
-    private Text livesText;
-    [SerializeField]
     private GameObject gameOver;
 
     private int score;
@@ -96,6 +94,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             SetColorIndex(currentIndex + 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SetScore(score + 10000);
         }
     }
 
@@ -374,7 +377,7 @@ public class GameManager : MonoBehaviour
     private void SetLives(int value)
     {
         lives = value;
-        livesText.text = lives.ToString();
+        UIManager.Instance.UpdateLives(lives);
     }
 
     private void SetColorIndex(int index)
@@ -388,6 +391,7 @@ public class GameManager : MonoBehaviour
         blaster.UpdateColor();
         dart.UpdateColor();
         mushroomField.UpdateMushroomColors();
+        UIManager.Instance.UpdateLiveColors();
     }
 
     public void SpawnSpider(float delay)
