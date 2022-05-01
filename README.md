@@ -17,7 +17,7 @@ is to defeat the centipede which makes its way down the field from the top of th
 centipede in the middle segment will cause it to split into two separate centipedes. Along the way, the Player will also encounter other enemies such as the spider, each with their own unique purpose/role in the game... Blast away and have fun seeing how long you survive!    
  
 ## Test The Project!
-In order to play this version of Centipede, follow the [link](https://sergeibak.github.io/PersonalWebsite/Minesweeper.html) to a in-browser WebGL build (No download required!).
+In order to play this version of Centipede, follow the [link](https://sergeibak.github.io/PersonalWebsite/centipede.html) to a in-browser WebGL build (No download required!).
 
 ## Code
 A brief description of all of the classes is as follows:
