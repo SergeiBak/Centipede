@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text scoreText;
     [SerializeField]
+    private Text[] gameOverText;
+
+    [SerializeField]
     private Image[] lifeIcons;
     [SerializeField]
     private Sprite[] lifeSprites;
@@ -99,5 +102,10 @@ public class UIManager : MonoBehaviour
     {
         scoreText.color = textColors[GameManager.Instance.currentIndex];
         highScoreText.color = textColors[GameManager.Instance.currentIndex];
+
+        foreach (Text text in gameOverText)
+        {
+            text.color = textColors[GameManager.Instance.currentIndex];
+        }
     }
 }

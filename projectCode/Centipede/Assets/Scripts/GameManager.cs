@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckIfTimeToSpawnScorpion()
     {
-        if (!scorpionActive && !fleaActive && blaster.isActiveAndEnabled)
+        if (!scorpionActive && !fleaActive && blaster.isActiveAndEnabled && (wave >= 3))
         {
             scorpionActive = true;
 
