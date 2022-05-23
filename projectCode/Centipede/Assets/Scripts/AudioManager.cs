@@ -28,6 +28,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip extraLifeSound;
 
+    [SerializeField]
+    private AudioSource mushroomRepairSource;
+    [SerializeField]
+    private AudioClip mushroomRepairSound;
+
 
     private void Awake()
     {
@@ -79,5 +84,10 @@ public class AudioManager : MonoBehaviour
     public void PlayExtraLifeSound()
     {
         extraLifeSource.PlayOneShot(extraLifeSound, 1f);
+    }
+
+    public void PlayMushroomRepairSound()
+    {
+        mushroomRepairSource.PlayOneShot(mushroomRepairSound, 1f);
     }
 }

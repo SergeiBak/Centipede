@@ -54,8 +54,9 @@ public class MushroomField : MonoBehaviour
         {
             if (!mushroom.IsFullHealth() || mushroom.infected)
             {
+                AudioManager.Instance.PlayMushroomRepairSound();
                 mushroom.Heal();
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(0.15f); // 0.25f
             }
         }
 
