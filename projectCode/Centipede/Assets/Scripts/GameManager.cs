@@ -370,6 +370,8 @@ public class GameManager : MonoBehaviour
         {
             nextMilestone += extraLifeScore;
             SetLives(lives + 1);
+
+            AudioManager.Instance.PlayExtraLifeSound();
         }
     }
 

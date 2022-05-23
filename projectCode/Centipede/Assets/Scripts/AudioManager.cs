@@ -23,6 +23,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip enemyDeathSound;
 
+    [SerializeField]
+    private AudioSource extraLifeSource;
+    [SerializeField]
+    private AudioClip extraLifeSound;
+
 
     private void Awake()
     {
@@ -69,5 +74,10 @@ public class AudioManager : MonoBehaviour
     public void PlayEnemyDeathSound()
     {
         enemyDeathSource.PlayOneShot(enemyDeathSound, 1f);
+    }
+
+    public void PlayExtraLifeSound()
+    {
+        extraLifeSource.PlayOneShot(extraLifeSound, 1f);
     }
 }
