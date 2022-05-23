@@ -68,6 +68,7 @@ public class Scorpion : MonoBehaviour
         GameManager.Instance.IncreaseScore(points);
         GameManager.Instance.ReadyNextScorpion(0);
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayEnemyDeathSound();
         Destroy(gameObject);
     }
 

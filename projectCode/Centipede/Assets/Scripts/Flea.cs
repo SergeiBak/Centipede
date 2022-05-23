@@ -75,6 +75,7 @@ public class Flea : MonoBehaviour
             GameManager.Instance.IncreaseScore(points);
             GameManager.Instance.ReadyNextFlea(0);
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayEnemyDeathSound();
             Destroy(gameObject);
         }
         else
@@ -91,6 +92,7 @@ public class Flea : MonoBehaviour
             GameManager.Instance.ResetRound();
             GameManager.Instance.ReadyNextFlea(5f);
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayEnemyDeathSound();
             Destroy(gameObject);
             return;
         }

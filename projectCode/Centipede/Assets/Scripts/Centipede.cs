@@ -92,6 +92,7 @@ public class Centipede : MonoBehaviour
 
         Vector2 segmentLocation = segment.transform.position;
         Instantiate(deathPrefab, segmentLocation, Quaternion.identity);
+        AudioManager.Instance.PlayEnemyDeathSound();
 
         segments.Remove(segment);
         Destroy(segment.gameObject);

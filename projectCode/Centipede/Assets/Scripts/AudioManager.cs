@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
+    private AudioSource backgroundSfx;
+
     [SerializeField]
     private AudioSource shootSource;
     [SerializeField]
@@ -15,6 +17,11 @@ public class AudioManager : MonoBehaviour
     private AudioSource deathSource;
     [SerializeField]
     private AudioClip deathSound;
+
+    [SerializeField]
+    private AudioSource enemyDeathSource;
+    [SerializeField]
+    private AudioClip enemyDeathSound;
 
 
     private void Awake()
@@ -27,6 +34,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        backgroundSfx = GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -37,6 +46,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PauseBackgroundSFX()
+    {
+        backgroundSfx.Stop();
+    }
+
+    public void ResumeBackgroundSFX()
+    {
+        backgroundSfx.Play();
+    }
+
     public void PlayShootSound()
     {
         shootSource.PlayOneShot(shootSound, 1f);
@@ -45,5 +64,10 @@ public class AudioManager : MonoBehaviour
     public void PlayDeathSound()
     {
         deathSource.PlayOneShot(deathSound, 1f);
+    }
+
+    public void PlayEnemyDeathSound()
+    {
+        enemyDeathSource.PlayOneShot(enemyDeathSound, 1f);
     }
 }

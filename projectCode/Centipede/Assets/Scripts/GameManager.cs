@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
         wave = 1;
         UpdateCentipedeSpeed();
 
+        AudioManager.Instance.ResumeBackgroundSFX();
+
         roundActive = true;
         SpawnSpider(4f);
         centipede.ResumeCentipede();
@@ -226,6 +228,8 @@ public class GameManager : MonoBehaviour
         ClearScorpions();
         centipede.PauseCentipede();
 
+        AudioManager.Instance.PauseBackgroundSFX();
+
         StartCoroutine(StartEndSequence());
     }
 
@@ -261,6 +265,8 @@ public class GameManager : MonoBehaviour
 
         blaster.PlayDeathAnimation();
 
+        AudioManager.Instance.PauseBackgroundSFX();
+
         blaster.gameObject.SetActive(false);
         centipede.PauseCentipede();
         StartCoroutine(StartRepairSequence());
@@ -288,6 +294,7 @@ public class GameManager : MonoBehaviour
         centipede.Respawn();
         centipede.ResumeCentipede();
         blaster.Respawn();
+        AudioManager.Instance.ResumeBackgroundSFX();
         roundActive = true;
         SpawnSpider(4f);
     }

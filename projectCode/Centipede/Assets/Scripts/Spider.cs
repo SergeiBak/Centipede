@@ -128,6 +128,7 @@ public class Spider : MonoBehaviour
     {
         GameManager.Instance.SpawnSpider(killedDelay);
         SpiderDeathAnimation spiderDeath = Instantiate(deathAnimationPrefab, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayEnemyDeathSound();
 
         Blaster player = FindObjectOfType<Blaster>();
         float distance = Vector2.Distance(player.gameObject.transform.position, transform.position);
