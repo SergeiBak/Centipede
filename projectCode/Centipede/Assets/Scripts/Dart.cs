@@ -32,6 +32,8 @@ public class Dart : MonoBehaviour
     {
         if (rb.isKinematic && (Input.GetButton("Fire1") || Input.GetKey(KeyCode.Space)))
         {
+            AudioManager.Instance.PlayShootSound();
+
             transform.SetParent(null);
             rb.bodyType = RigidbodyType2D.Dynamic;
             collider.enabled = true;

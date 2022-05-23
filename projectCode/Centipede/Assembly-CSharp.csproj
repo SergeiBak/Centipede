@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Flea.cs" />
     <Compile Include="Assets\Scripts\SpiderAnimation.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Blaster.cs" />
     <Compile Include="Assets\Scripts\Spider.cs" />
@@ -65,13 +66,13 @@
     <Compile Include="Assets\Scripts\CentipedeSegment.cs" />
     <Compile Include="Assets\Scripts\MushroomRepairAnim.cs" />
     <Compile Include="Assets\Scripts\Mushroom.cs" />
+    <Compile Include="Assets\Scripts\CentipedeDeathAnimation.cs" />
     <Compile Include="Assets\Scripts\Centipede.cs" />
     <Compile Include="Assets\Scripts\SpiderDeathAnimation.cs" />
     <Compile Include="Assets\Scripts\Scorpion.cs" />
     <Compile Include="Assets\Scripts\MushroomField.cs" />
     <Compile Include="Assets\Scripts\Dart.cs" />
-    <Compile Include="Assets\Scripts\CentipedeDeathAnimation.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
