@@ -21,6 +21,7 @@ In order to play this version of Centipede, follow the [link](https://sergeibak.
 
 ## Code
 A brief description of all of the classes is as follows:
+- The `AudioManager` class is responsible for the playing of various sound effects such as shooting, dying, etc.
 - The `Blaster` class handles player movement as well as the state of the Player/Blaster.
 - The `Centipede` class handles the overall state & spawning of the centipede.
 - The `CentipedeDeathAnimation` class handles the death explosion animation used by the centipede + flea + scorpion.
