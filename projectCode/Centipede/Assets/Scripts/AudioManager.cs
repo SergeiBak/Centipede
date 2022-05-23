@@ -11,6 +11,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip shootSound;
 
+    [SerializeField]
+    private AudioSource deathSource;
+    [SerializeField]
+    private AudioClip deathSound;
+
 
     private void Awake()
     {
@@ -35,5 +40,10 @@ public class AudioManager : MonoBehaviour
     public void PlayShootSound()
     {
         shootSource.PlayOneShot(shootSound, 1f);
+    }
+
+    public void PlayDeathSound()
+    {
+        deathSource.PlayOneShot(deathSound, 1f);
     }
 }

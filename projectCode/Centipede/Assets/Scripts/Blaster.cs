@@ -52,6 +52,7 @@ public class Blaster : MonoBehaviour
 
     public void PlayDeathAnimation()
     {
+        AudioManager.Instance.PlayDeathSound();
         Instantiate(playerDeathPrefab, transform.position, Quaternion.identity);
     }
 }
